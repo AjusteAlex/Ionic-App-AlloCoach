@@ -1,0 +1,7 @@
+{
+  "name": "ionic_sport",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
