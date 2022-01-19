@@ -1,7 +1,5 @@
-=== Installation projet ===
-
-npm install
-
-=== Lancement projet ===
-
-ionic serve
+# Installation projet 
+### npm install
+***
+# Lancement projet 
+### ionic serve
