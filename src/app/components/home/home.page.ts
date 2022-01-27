@@ -4,7 +4,6 @@ import * as Leaflet from 'leaflet';
 import { Geolocation } from '@capacitor/geolocation';
 import { LocalisationService } from '../../shared/services/localisation/localisation.service'
 
-// declare var google:any;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,12 +17,15 @@ export class HomePage {
 
   constructor(private localisationService:LocalisationService) {}
 
+  ngOnInit() { }
   ionViewDidEnter(){
     this.initMap()
   }
 
+  // ============== Version automatisé ====================
   async initMap() {
-  // fonction asynchrone pour que Geolocalisation puisse récupérer la position acutel du navigateur 
+    Geolocation.requestPermissions();
+    // fonction asynchrone pour que Geolocalisation puisse récupérer la position acutel du navigateur 
     const coordinates = await Geolocation.getCurrentPosition();
     //  Création de la map et initilisation de la vue afficher avec setView
     this.map = Leaflet.map('map').setView([coordinates.coords.latitude, coordinates.coords.longitude], 13);
@@ -32,7 +34,6 @@ export class HomePage {
     // Affiche le marker de la position ou l'on ce trouve
     Leaflet.marker([coordinates.coords.latitude, coordinates.coords.longitude]).addTo(this.map).bindPopup('Votre position');
     this.getlocalisations();
-
   }
 
   // récupération du service qui contient l'ensemble des données des coordonnées
