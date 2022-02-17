@@ -9,6 +9,8 @@ import { LocalisationService } from '../../shared/services/localisation/localisa
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+
 export class HomePage {
 
   map: Leaflet.Map;
@@ -22,8 +24,8 @@ export class HomePage {
     this.initMap()
   }
 
-  // ============== Version automatisé ====================
   async initMap() {
+
     Geolocation.requestPermissions();
     // fonction asynchrone pour que Geolocalisation puisse récupérer la position acutel du navigateur 
     const coordinates = await Geolocation.getCurrentPosition();
@@ -42,7 +44,7 @@ export class HomePage {
     .then( data => {
       data.forEach(function(value){
         // bouble pour récupérer chaque données indépendante et affichage des coordonnées sur la carte
-        Leaflet.marker([value.latitude, value.longitude]).addTo(this.map).bindPopup('Nom : ' + value.name + '<br>Adresse : ' + value.adress + '<br>Ville : ' + value.city); 
+        Leaflet.marker([value.latitude, value.longitude]).addTo(this.map).bindPopup('1Nom : ' + value.name + '<br>Adresse : ' + value.adress + '<br>Ville : ' + value.city); 
         // le this de fin permet d'utiliser this.map dans la boucle
       }, this)
     })
