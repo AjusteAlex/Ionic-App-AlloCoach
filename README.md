@@ -9,12 +9,15 @@
 2. Executer `ionic cap run android --external -livereload` et selectionner le mobile voulu  
 3. Par la suite l'app build et s'ouvre sur le device  
 
+***
+
 # Autoriser le mobile connecté à accéder à l'api en localhost
 
 Sur chrome, accéder au [DevTools](https://chrome://inspect/#devices) (chrome://inspect)  
 Selectionner "Post Forwarding" et renseigner le port et l'ip utilisé par l'api (ex: port: 3000; ip: localhost:3000)  
 Actualiser la page et relancer l'app pour correctement prendre en compte les changements
 
+***
 
 # Récupérer les logs de l'application 
 
