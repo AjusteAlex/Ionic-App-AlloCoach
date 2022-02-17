@@ -3,20 +3,25 @@
 
 ***
 
-# Lancement projet avec Android Studio
-`ionic cap open android` Cette commande permet d'ouvrir l'app dans l'emulateur android studio  
-Une fois l'emulateur démarrer utiliser la commande : `ionic cap run android --external -livereload`  afin d'actualiser l'app a chaque modification
+# Démarrer projet sur un téléphone
 
-Les logs seront disponible dans l'onglet `Logcat` d'Android Studio une fois l'app démarré
+1. Connecter par câble le téléphone au pc  
+2. Executer `ionic cap run android --external -livereload` et selectionner le mobile voulu  
+3. Par la suite l'app build et s'ouvre sur le device  
 
-***
+# Autoriser le mobile connecté à accéder à l'api en localhost
 
-# Emulator Android
-Config Android Studio  
-=> Version de l'emulateur utilisé : Version SQK 30  
-Ajout des variables d'environnement / Variables utilisateur pour developpeur  
-=> ANDROID_HOME : `%LOCALAPPDATA%\Android\Sdk`  
-=> Path : `%LOCALAPPDATA%\Android\Sdk\platform-tools`  
+Sur chrome, accéder au [DevTools](https://chrome://inspect/#devices) (chrome://inspect)  
+Selectionner "Post Forwarding" et renseigner le port et l'ip utilisé par l'api (ex: port: 3000; ip: localhost:3000)  
+Actualiser la page et relancer l'app pour correctement prendre en compte les changements
+
+
+# Récupérer les logs de l'application 
+
+Pour récupérer les logs de l'application lancé sur le téléphone  
+Sur chrome, accéder au [DevTools](https://chrome://inspect/#devices) (chrome://inspect)  
+Selectionner "inspect" dans la liste des mobiles connectés  
+Un nouvel onglet chrome s'ouvre avec l'affichage du device et la console chrome  
 
 ***
 
