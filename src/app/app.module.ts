@@ -8,18 +8,20 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginPageModule } from './components/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    HeaderComponent
+    HeaderComponent,
   ],
   entryComponents: [],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule,
+    LoginPageModule
   ],
   providers: [{ 
     provide: RouteReuseStrategy, 
