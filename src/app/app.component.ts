@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  
+  constructor(
+    private router: Router,
+    private platform:Platform
+    ) {
+      this.initializeApp()
+    }
+
+    initializeApp() {
+      this.platform.ready()
+      .then(()=> {
+        // alert('Application chargé')
+      })
+    }
 }

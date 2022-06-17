@@ -1,5 +1,10 @@
 
 <ion-app>
-  <app-header></app-header>
+  <div *ngIf="router.url != '/login'">
+    <div *ngIf="router.url != '/intro'">
+      <app-header></app-header>
+    </div>
+  </div>
+
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

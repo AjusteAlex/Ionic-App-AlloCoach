@@ -3,6 +3,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 import * as Leaflet from 'leaflet';
 import { Geolocation } from '@capacitor/geolocation';
 import { LocalisationService } from '../../shared/services/localisation/localisation.service'
+import { LoaderService } from 'src/app/shared/services/loader/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,10 @@ export class HomePage {
   coords: any;
   localisations: any;
 
-  constructor(private localisationService:LocalisationService) {}
+  constructor(
+    private localisationService:LocalisationService,
+    private loaderService:LoaderService
+    ) {}
 
   ngOnInit() { }
   ionViewDidEnter(){
@@ -25,7 +29,6 @@ export class HomePage {
   }
 
   async initMap() {
-
     Geolocation.requestPermissions();
     // fonction asynchrone pour que Geolocalisation puisse récupérer la position acutel du navigateur 
     const coordinates = await Geolocation.getCurrentPosition();
@@ -40,6 +43,7 @@ export class HomePage {
 
   // récupération du service qui contient l'ensemble des données des coordonnées
   getlocalisations():void{
+    console.log('la')
     this.localisationService.getlocalisations()
     .then( data => {
       data.forEach(function(value){
@@ -47,6 +51,7 @@ export class HomePage {
         Leaflet.marker([value.latitude, value.longitude]).addTo(this.map).bindPopup('1Nom : ' + value.name + '<br>Adresse : ' + value.adress + '<br>Ville : ' + value.city); 
         // le this de fin permet d'utiliser this.map dans la boucle
       }, this)
+      this.loaderService.closeLoading()
     })
     .catch(err => console.log(err))
   }

@@ -5,22 +5,21 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="login">
     <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input placeholder="email" type="text" name="email" formControlName="email" require></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input placeholder="Mot de passe" type="password" name="password" formControlName="password" required></ion-input>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Se connecter</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+        <ion-button  (click)="submit()" color="danger">Se connecter</ion-button>
       </ion-col>
     </ion-row>
   </form>
+  
+  <ion-button type="button" [routerLink]="['/forgot-password']" class="small-text" color="light">Mot de passe oublié ?</ion-button>
 </ion-content>

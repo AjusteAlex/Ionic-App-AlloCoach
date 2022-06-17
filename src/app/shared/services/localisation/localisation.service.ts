@@ -12,6 +12,7 @@ export class LocalisationService {
 
   // Get all localisations
   getlocalisations():Promise<any>{
+    console.log('getlocalisation')
     return new Promise((resolve, reject) => {
       this.http.get(this.url + 'localisations')
       .subscribe({

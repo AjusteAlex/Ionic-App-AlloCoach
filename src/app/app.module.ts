@@ -7,8 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+
 import { HeaderComponent } from './components/header/header.component';
-import { LoginPageModule } from './components/login/login.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { LoginPageModule } from './components/login/login.module';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    HttpClientModule,
-    LoginPageModule
+    HttpClientModule
+    
   ],
   providers: [{ 
     provide: RouteReuseStrategy, 
